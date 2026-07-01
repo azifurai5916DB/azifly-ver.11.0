@@ -15,6 +15,9 @@ const StateManager = {
         SaveSystem.data.coins += getCoins;
         SaveSystem.data.totalCoins += getCoins;
         
+        const gainedXP = Math.floor(100 + window.score * 0.2);
+        LevelSystem.addXP(gainedXP);
+        
         if (window.score > SaveSystem.data.bestScore) {
             SaveSystem.data.bestScore = window.score;
         }
@@ -37,6 +40,9 @@ const StateManager = {
         const getCoins = Math.floor(window.score / 10);
         SaveSystem.data.coins += getCoins;
         SaveSystem.data.totalCoins += getCoins;
+        
+        const gainedXP = Math.floor(100 + window.score * 0.2);
+        LevelSystem.addXP(gainedXP);
         
         if (!SaveSystem.data.challenges.includes(window.activeChallenge.id)) {
             SaveSystem.data.challenges.push(window.activeChallenge.id);
