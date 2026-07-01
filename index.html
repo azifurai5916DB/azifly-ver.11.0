@@ -23,6 +23,7 @@
             <button id="ruleOpenBtn" class="btn-sub">ルール</button>
             <button id="historyOpenBtn" class="btn-sub" style="right: auto; left: 10px;">アプデ履歴</button>
             <button id="muteBtn" class="btn-sub" style="right: auto; left: 10px; margin-left: 80px;">🔊</button>
+            <button id="statusOpenBtn" class="btn-sub" style="right: auto; left: 10px; margin-left: 160px;">ステータス</button>
             <h1>あじfly!</h1>
             <div id="titleStats">所持: <span id="titleCoin">0</span> コイン</div>
             
@@ -60,6 +61,46 @@
         <div id="achieveScreen" class="screen hidden">
             <h2>実績一覧</h2>
             <div id="achieveList" class="list-container"></div>
+            <button class="btn btn-gray backToTitleBtn">もどる</button>
+        </div>
+
+        <div id="statusScreen" class="screen hidden">
+            <h2>ステータス</h2>
+            <div class="status-content">
+                <div class="status-row">
+                    <span class="status-label">レベル</span>
+                    <span class="status-value" id="statusLevel">-</span>
+                </div>
+                <div class="status-row">
+                    <span class="status-label">経験値</span>
+                    <span class="status-value" id="statusXP">-</span>
+                </div>
+                <div class="status-row">
+                    <span class="status-label">次レベルまで</span>
+                    <span class="status-value" id="statusNextXP">-</span>
+                </div>
+                <div class="status-row">
+                    <span class="status-label">レベル上限</span>
+                    <span class="status-value" id="statusLevelCap">-</span>
+                </div>
+                <div class="status-row">
+                    <span class="status-label">所持コイン</span>
+                    <span class="status-value" id="statusCoins">-</span>
+                </div>
+                <div class="status-row">
+                    <span class="status-label">最高スコア</span>
+                    <span class="status-value" id="statusBestScore">-</span>
+                </div>
+                <div class="status-row">
+                    <span class="status-label">開放済みスキン</span>
+                    <span class="status-value" id="statusSkins">-</span>
+                </div>
+                <div class="status-row">
+                    <span class="status-label">開放済み実績</span>
+                    <span class="status-value" id="statusAchievements">-</span>
+                </div>
+            </div>
+            <button id="unlockCapBtn" class="btn btn-orange" style="margin-top: 15px;">レベル上限解放 (<span id="capPrice">-</span>コイン)</button>
             <button class="btn btn-gray backToTitleBtn">もどる</button>
         </div>
 
