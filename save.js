@@ -2,7 +2,8 @@ const SaveSystem = {
     data: {
         bestScore: 0, coins: 0, totalCoins: 0, rubies: 0,
         eqSkin: 'default', skins: ['default'],
-        achieves: [], challenges: [], worldClassDone:false
+        achieves: [], challenges: [], worldClassDone: false,
+        level: 1, xp: 0, levelCap: 20, levelCapUnlockCount: 0
     },
     load() {
         this.data.bestScore = parseInt(localStorage.getItem('ajifry_bestScore')) || 0;
@@ -18,6 +19,16 @@ const SaveSystem = {
         } catch(e) {
             this.reset();
         }
+        
+        if (this.data.level === undefined) this.data.level = 1;
+        if (this.data.xp === undefined) this.data.xp = 0;
+        if (this.data.levelCap === undefined) this.data.levelCap = 20;
+        if (this.data.levelCapUnlockCount === undefined) this.data.levelCapUnlockCount = 0;
+        
+        this.data.level = parseInt(localStorage.getItem('ajifry_level')) || this.data.level;
+        this.data.xp = parseInt(localStorage.getItem('ajifry_xp')) || this.data.xp;
+        this.data.levelCap = parseInt(localStorage.getItem('ajifry_levelCap')) || this.data.levelCap;
+        this.data.levelCapUnlockCount = parseInt(localStorage.getItem('ajifry_levelCapUnlockCount')) || this.data.levelCapUnlockCount;
     },
     save() {
         localStorage.setItem('ajifry_bestScore', this.data.bestScore);
@@ -29,9 +40,13 @@ const SaveSystem = {
         localStorage.setItem('ajifry_achieves', JSON.stringify(this.data.achieves));
         localStorage.setItem('ajifry_challenges', JSON.stringify(this.data.challenges));
         localStorage.setItem('ajifry_worldClassDone', this.data.worldClassDone ? '1':'0');
+        localStorage.setItem('ajifry_level', this.data.level);
+        localStorage.setItem('ajifry_xp', this.data.xp);
+        localStorage.setItem('ajifry_levelCap', this.data.levelCap);
+        localStorage.setItem('ajifry_levelCapUnlockCount', this.data.levelCapUnlockCount);
     },
     reset() {
-        this.data = { bestScore:0, coins:0, totalCoins:0, rubies:0, eqSkin:'default', skins:['default'], achieves:[], challenges:[] };
+        this.data = { bestScore:0, coins:0, totalCoins:0, rubies:0, eqSkin:'default', skins:['default'], achieves:[], challenges:[], worldClassDone: false, level: 1, xp: 0, levelCap: 20, levelCapUnlockCount: 0 };
         this.save();
     }
 };
