@@ -2,7 +2,6 @@
 const StateManager = {
     gameOver() {
         window.gameState = 'GAMEOVER';
-        // ゲームオーバー効果音を再生
         if (window.AudioSystem) {
             AudioSystem.playSe('gameover');
         }
